@@ -1,0 +1,71 @@
+[
+  { "type": "segment", "segment_tag": "UNB" },
+  { "type": "segment", "segment_tag": "UNH" },
+  { "type": "segment", "segment_tag": "BGM" },
+  { "type": "segment", "segment_tag": "DTM", "repeat": true },
+  {
+    "type": "segment_group",
+    "group_name": "SG13",
+    "content": [
+      { "type": "segment", "segment_tag": "CNI" },
+      { "type": "segment", "segment_tag": "CNT", "repeat": true },
+      {
+        "type": "segment_group",
+        "group_name": "SG14",
+        "content": [
+          { "type": "segment", "segment_tag": "STS" },
+          { "type": "segment", "segment_tag": "RFF", "repeat": true },
+          { "type": "segment", "segment_tag": "DTM", "repeat": true },
+          { "type": "segment", "segment_tag": "FTX", "repeat": true },
+          {
+            "type": "segment_group",
+            "group_name": "SG15",
+            "content": [
+              { "type": "segment", "segment_tag": "NAD" },
+              {
+                "type": "segment_group",
+                "group_name": "SG16",
+                "content": [
+                  { "type": "segment", "segment_tag": "CTA" }
+                ]
+              }
+            ]
+          },
+          { "type": "segment", "segment_tag": "LOC" },
+          {
+            "type": "segment_group",
+            "group_name": "SG23",
+            "content": [
+              { "type": "segment", "segment_tag": "GID" },
+              { "type": "segment", "segment_tag": "LOC", "repeat": true },
+              {
+                "type": "segment_group",
+                "group_name": "SG24",
+                "content": [
+                  { "type": "segment", "segment_tag": "MEA" }
+                ]
+              },
+              {
+                "type": "segment_group",
+                "group_name": "SG25",
+                "content": [
+                  { "type": "segment", "segment_tag": "DIM" }
+                ]
+              },
+              {
+                "type": "segment_group",
+                "group_name": "SG26",
+                "content": [
+                  { "type": "segment", "segment_tag": "PCI" },
+                  { "type": "segment", "segment_tag": "GIN", "repeat": true }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  { "type": "segment", "segment_tag": "UNT" },
+  { "type": "segment", "segment_tag": "UNZ" }
+]

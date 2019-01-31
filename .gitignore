@@ -8,6 +8,7 @@
 /tmp/
 /Gemfile.lock
 .DS_Store
+*.swp
 
 # rspec failure tracking
 .rspec_status

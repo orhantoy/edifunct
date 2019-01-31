@@ -9,6 +9,7 @@
 /Gemfile.lock
 .DS_Store
 *.swp
+.byebug_history
 
 # rspec failure tracking
 .rspec_status

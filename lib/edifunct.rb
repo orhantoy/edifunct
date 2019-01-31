@@ -3,6 +3,7 @@
 require "edifunct/version"
 require "edifunct/parser"
 require "edifunct/tokenizer"
+require "edifunct/utils"
 
 # Top-level Edifunct namespace with short-hands methods to parse EDIFACT documents.
 module Edifunct

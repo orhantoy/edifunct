@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "edifunct/tokenizer"
 require "edifunct/segment_group"
 
@@ -27,6 +26,7 @@ module Edifunct
 
     def parse_group(parent_group, group_schema)
       group_schema.each do |schema_entry|
+        Utils::stringify_hash_keys!(schema_entry)
         case schema_entry.fetch("type")
         when "segment"
           if current_segment_is?(schema_entry.fetch("segment_tag"))

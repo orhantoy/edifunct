@@ -7,6 +7,8 @@ puts
 puts <<-MARKDOWN
 Fun with EDIFACT :tada:
 
+[![CircleCI](https://circleci.com/gh/orhantoy/edifunct.svg?style=svg)](https://circleci.com/gh/orhantoy/edifunct)
+
 EDIFACT files consist of segments and extracting the segments themselves is not too complex.
 But when segments are being grouped in segment groups and nested segment groups, it would require having an additional, manual parsing step after extracting the segments.
 This gem makes this easy by parsing the EDIFACT file according to a simple schema which you provide alongside the EDIFACT file.

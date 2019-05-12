@@ -1,4 +1,36 @@
 RSpec.describe Edifunct::Tokenizer do
+  describe ".for_message" do
+
+    context "when UNA header is present" do
+      let(:edifact_message) do
+        <<~EDIFACT
+        UNA;-:! "
+        EDIFACT
+      end
+
+      it "creates an instance of tokenizer with expected delimiters" do
+        tokenizer = described_class.for_message(edifact_message)
+
+        expect(tokenizer.release_character).to eq '!'
+        expect(tokenizer.segment_terminator).to eq '"'
+        expect(tokenizer.data_element_separator).to eq '-'
+        expect(tokenizer.component_data_element_separator).to eq ';'
+      end
+    end
+
+    context "when UNA header is missing" do
+
+      it "creates an instance of tokenizer with default delimiters" do
+        tokenizer = described_class.for_message("")
+
+        expect(tokenizer.release_character).to eq '?'
+        expect(tokenizer.segment_terminator).to eq '\''
+        expect(tokenizer.data_element_separator).to eq '+'
+        expect(tokenizer.component_data_element_separator).to eq ':'
+      end
+    end
+  end
+
   describe "#as_segments" do
     let(:tokenizer) { described_class.new }
     let(:edifact_message) do

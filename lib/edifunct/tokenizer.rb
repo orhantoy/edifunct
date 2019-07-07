@@ -27,6 +27,9 @@ module Edifunct
 
         Segment.new(tag: segment_tag, raw_segment: raw_segment, data_elements: data_elements)
       end
+        .reject do |segment|
+          segment.tag[0..2] == "UNA"
+      end
     end
 
     def split_segment(raw_segment)

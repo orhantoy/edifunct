@@ -3,6 +3,7 @@ RSpec.describe Edifunct::Tokenizer do
     let(:tokenizer) { described_class.new }
     let(:edifact_message) do
       <<~EDIFACT
+        UNA:+.? '
         UNB+UNOC:1+Sender+Recipient+20180120:1307+31'
         UNH+465+IFTSTA:D:10B:UN'
       EDIFACT

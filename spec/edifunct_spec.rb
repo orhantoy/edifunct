@@ -36,4 +36,16 @@ RSpec.describe Edifunct do
     iftsta_example_segments = Edifunct.as_segments(iftsta_example_as_string)
     expect(iftsta_example_segments.count).to eq 41
   end
+
+  it "splits a message with the Service String Advice into segments" do
+    iftsta_example_as_string = <<~EDIFACT
+      UNA:+.? '
+      UNB+UNOC:1+Sender+Recipient+20180120:1307+31'
+      UNH+465+IFTSTA:D:10B:UN'
+    EDIFACT
+
+    iftsta_example_segments = Edifunct.as_segments(iftsta_example_as_string)
+    expect(iftsta_example_segments.count).to eq 2
+    expect(iftsta_example_segments[0].tag).to eq "UNB"
+  end
 end

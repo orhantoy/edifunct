@@ -22,7 +22,7 @@ module Edifunct
     end
 
     def as_segments(message_as_string)
-      message_as_string.split(segment_regexp).map do |raw_segment|
+      strip_service_string_advice(message_as_string).split(segment_regexp).map do |raw_segment|
         segment_tag, data_elements = split_segment(raw_segment)
 
         Segment.new(tag: segment_tag, raw_segment: raw_segment, data_elements: data_elements)
@@ -66,6 +66,13 @@ module Edifunct
 
     def component_data_element_regexp
       @component_data_element_regexp ||= Regexp.new("(?!#{Regexp.escape(@release_character)})#{Regexp.escape(@component_data_element_separator)}")
+    end
+
+    SERVICE_STRING_ADVICE_REGEXP = /\A\s*UNA.{6}\s*/
+
+    # Strips the optional UNA segment, also known as the Service String Advice.
+    def strip_service_string_advice(message_as_string)
+      message_as_string.sub(SERVICE_STRING_ADVICE_REGEXP, '')
     end
   end
 end

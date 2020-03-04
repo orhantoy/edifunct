@@ -7,6 +7,7 @@ require "edifunct/version"
 Gem::Specification.new do |spec|
   spec.name          = "edifunct"
   spec.version       = Edifunct::VERSION
+  spec.licenses      = ["MIT"]
   spec.authors       = ["Orhan Toy"]
   spec.email         = ["toyorhan@gmail.com"]
 

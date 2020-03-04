@@ -6,9 +6,27 @@ module Edifunct
   # Tokenizer is responsible for splitting message into segments, data elements and components.
   class Tokenizer
     class << self
-      def for_message(_edifact_message)
-        # TODO: Should check if the message starts with `UNA`, and then extract the different separator/terminator settings to be used for initializing the tokenizer.
-        new
+      def for_message(edifact_message)
+        if edifact_message.start_with?("UNA")
+          _u,
+          _n,
+          _a,
+          component_data_element_separator,
+          data_element_separator,
+          _decimal_mark_delimiter,
+          release_character,
+          _reserved,
+          segment_terminator = edifact_message.chars
+
+          new(
+            release_character: release_character,
+            segment_terminator: segment_terminator,
+            data_element_separator: data_element_separator,
+            component_data_element_separator: component_data_element_separator
+          )
+        else
+          new
+        end
       end
     end
 
